@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-public interface IItem
-{
+public interface IItem {
     void Use(GameObject target);
 }

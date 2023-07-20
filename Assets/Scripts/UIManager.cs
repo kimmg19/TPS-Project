@@ -2,14 +2,11 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
-{
+public class UIManager : MonoBehaviour {
     private static UIManager instance;
-    
-    public static UIManager Instance
-    {
-        get
-        {
+
+    public static UIManager Instance {
+        get {
             if (instance == null) instance = FindObjectOfType<UIManager>();
 
             return instance;
@@ -25,48 +22,43 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text ammoText;
     [SerializeField] private Text waveText;
 
-    public void UpdateAmmoText(int magAmmo, int remainAmmo)
-    {
+    public void UpdateAmmoText(int magAmmo, int remainAmmo) {
         ammoText.text = magAmmo + "/" + remainAmmo;
     }
 
-    public void UpdateScoreText(int newScore)
-    {
+    public void UpdateScoreText(int newScore) {
         scoreText.text = "Score : " + newScore;
     }
-    
-    public void UpdateWaveText(int waves, int count)
-    {
+
+    public void UpdateWaveText(int waves, int count) {
         waveText.text = "Wave : " + waves + "\nEnemy Left : " + count;
     }
 
-    public void UpdateLifeText(int count)
-    {
+    public void UpdateLifeText(int count) {
         lifeText.text = "Life : " + count;
     }
 
-    public void UpdateCrossHairPosition(Vector3 worldPosition)
-    {
+    public void UpdateCrossHairPosition(Vector3 worldPosition) {
         crosshair.UpdatePosition(worldPosition);
     }
-    
-    public void UpdateHealthText(float health)
-    {
+
+    public void UpdateHealthText(float health) {
+        print(health);
+
+        //소수점 내림.
         healthText.text = Mathf.Floor(health).ToString();
     }
-    
-    public void SetActiveCrosshair(bool active)
-    {
+
+    public void SetActiveCrosshair(bool active) {
         crosshair.SetActiveCrosshair(active);
     }
-    
-    public void SetActiveGameoverUI(bool active)
-    {
+
+    public void SetActiveGameoverUI(bool active) {
         gameoverUI.SetActive(active);
     }
-    
-    public void GameRestart()
-    {
+
+    public void GameRestart() {
+        print("durl");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
